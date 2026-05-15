@@ -74,7 +74,7 @@ export default function Alugueres() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Alugueres', 'Rentals')}</h2>
+          <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Alugueres', 'Rentals')}</h2>
           <p className="text-sm text-gray-400 mt-0.5">
             {alugueres.filter(a => a.estado === 'Activo').length} {t('activos', 'active')} · {alugueres.length} {t('total', 'total')}
           </p>
@@ -83,13 +83,13 @@ export default function Alugueres() {
           <div className="flex border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
             <button
               onClick={() => setVista('lista')}
-              className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium transition-colors ${vista === 'lista' ? 'bg-[#1B3A6B] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+              className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium transition-colors ${vista === 'lista' ? 'bg-[#D11C1C] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
             >
               <List size={15} /> {t('Lista', 'List')}
             </button>
             <button
               onClick={() => setVista('calendario')}
-              className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium transition-colors ${vista === 'calendario' ? 'bg-[#1B3A6B] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+              className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium transition-colors ${vista === 'calendario' ? 'bg-[#D11C1C] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
             >
               <CalendarDays size={15} /> {t('Calendário', 'Calendar')}
             </button>
@@ -108,7 +108,7 @@ export default function Alugueres() {
             onClick={() => setFiltroEstado(estado)}
             className={`px-3.5 py-1.5 rounded-full text-sm font-medium border transition-all ${
               filtroEstado === estado
-                ? 'bg-[#1B3A6B] text-white border-[#1B3A6B]'
+                ? 'bg-[#D11C1C] text-white border-[#D11C1C]'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
             }`}
           >
@@ -126,7 +126,7 @@ export default function Alugueres() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-[#1B3A6B] text-white text-left">
+                <tr className="bg-[#D11C1C] text-white text-left">
                   {[
                     ['ID', 'ID'], ['Cliente', 'Client'], ['Máquina', 'Machine'],
                     ['Início', 'Start'], ['Fim', 'End'], ['Duração', 'Duration'],
@@ -157,14 +157,14 @@ export default function Alugueres() {
                       onClick={() => { setAluguerAberto(aluguer); setTabActiva('info') }}
                     >
                       <td className="px-4 py-3.5">
-                        <span className="font-mono text-xs font-medium text-[#1B3A6B] bg-blue-50 px-2 py-0.5 rounded">{aluguer.id}</span>
+                        <span className="font-mono text-xs font-medium text-[#D11C1C] bg-blue-50 px-2 py-0.5 rounded">{aluguer.id}</span>
                       </td>
                       <td className="px-4 py-3.5 text-sm font-medium text-gray-800">{cli?.nome || '—'}</td>
                       <td className="px-4 py-3.5 text-sm text-gray-600">{maq?.nome || aluguer.maquinaId}</td>
                       <td className="px-4 py-3.5 text-sm text-gray-500">{new Date(aluguer.inicio).toLocaleDateString('pt-PT')}</td>
                       <td className="px-4 py-3.5 text-sm text-gray-500">{new Date(aluguer.fim).toLocaleDateString('pt-PT')}</td>
                       <td className="px-4 py-3.5 text-sm text-gray-500">{d} {t('dias', 'd')}</td>
-                      <td className="px-4 py-3.5 text-sm font-bold text-[#1B3A6B]">€{aluguer.valor.toLocaleString('pt-PT')}</td>
+                      <td className="px-4 py-3.5 text-sm font-bold text-[#D11C1C]">€{aluguer.valor.toLocaleString('pt-PT')}</td>
                       <td className="px-4 py-3.5"><Badge label={aluguer.estado} /></td>
                       <td className="px-4 py-3.5">
                         <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity" onClick={e => e.stopPropagation()}>
@@ -202,7 +202,7 @@ export default function Alugueres() {
       {vista === 'calendario' && (
         <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-[#1A1A2A] font-display">Maio 2025</h3>
+            <h3 className="font-bold text-[#111111] font-display">Maio 2025</h3>
             <div className="flex gap-3 text-xs">
               {Object.entries(ESTADO_COLORS_CAL).map(([estado, cls]) => (
                 <span key={estado} className={`px-2 py-0.5 rounded border ${cls}`}>{estado}</span>
@@ -229,9 +229,9 @@ export default function Alugueres() {
               return (
                 <div
                   key={dia}
-                  className={`min-h-16 p-1.5 rounded-lg border ${isHoje ? 'border-[#1B3A6B] bg-blue-50' : 'border-gray-100 hover:bg-gray-50'} transition-colors`}
+                  className={`min-h-16 p-1.5 rounded-lg border ${isHoje ? 'border-[#D11C1C] bg-blue-50' : 'border-gray-100 hover:bg-gray-50'} transition-colors`}
                 >
-                  <div className={`text-xs font-semibold mb-1 ${isHoje ? 'text-[#1B3A6B]' : 'text-gray-500'}`}>{dia}</div>
+                  <div className={`text-xs font-semibold mb-1 ${isHoje ? 'text-[#D11C1C]' : 'text-gray-500'}`}>{dia}</div>
                   <div className="space-y-0.5">
                     {alugueresNoDia.slice(0, 2).map(a => {
                       const maq = getMaquina(a.maquinaId)
@@ -278,7 +278,7 @@ export default function Alugueres() {
                     <div key={est} className="flex items-center gap-2">
                       <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border ${
                         isCancelado && est === 'Pedido' ? 'bg-red-100 border-red-200 text-red-700' :
-                        isActive ? 'bg-[#1B3A6B] border-[#1B3A6B] text-white' :
+                        isActive ? 'bg-[#D11C1C] border-[#D11C1C] text-white' :
                         isPast ? 'bg-green-50 border-green-200 text-green-700' :
                         'bg-gray-50 border-gray-200 text-gray-400'
                       }`}>
@@ -342,7 +342,7 @@ export default function Alugueres() {
                   <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors"
                     onClick={() => addToast(t('A abrir contrato PDF...', 'Opening PDF contract...'), 'info')}
                   >
-                    <FileText size={20} className="text-[#1B3A6B]" />
+                    <FileText size={20} className="text-[#D11C1C]" />
                     <div>
                       <p className="text-sm font-medium text-gray-700">{t('Contrato PDF', 'PDF Contract')}</p>
                       <p className="text-xs text-gray-400">{t('Clique para visualizar', 'Click to view')}</p>
@@ -405,7 +405,7 @@ export default function Alugueres() {
               <select
                 value={novoAluguer.clienteId}
                 onChange={e => setNovoAluguer(p => ({ ...p, clienteId: e.target.value }))}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30"
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30"
               >
                 <option value="">{t('Seleccionar cliente', 'Select client')}</option>
                 {clientes.map(c => <option key={c.id} value={c.id}>{c.nome}</option>)}
@@ -416,7 +416,7 @@ export default function Alugueres() {
               <select
                 value={novoAluguer.maquinaId}
                 onChange={e => setNovoAluguer(p => ({ ...p, maquinaId: e.target.value }))}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30"
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30"
               >
                 <option value="">{t('Seleccionar máquina', 'Select machine')}</option>
                 {frota.filter(m => m.estado === 'Disponível').map(m => (
@@ -429,12 +429,12 @@ export default function Alugueres() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Data Início', 'Start Date')}</label>
               <input type="date" value={novoAluguer.inicio} onChange={e => setNovoAluguer(p => ({ ...p, inicio: e.target.value }))}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Data Fim', 'End Date')}</label>
               <input type="date" value={novoAluguer.fim} onChange={e => setNovoAluguer(p => ({ ...p, fim: e.target.value }))}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -443,7 +443,7 @@ export default function Alugueres() {
               <select
                 value={novoAluguer.motoristaId}
                 onChange={e => setNovoAluguer(p => ({ ...p, motoristaId: e.target.value }))}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30"
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30"
               >
                 <option value="">{t('Seleccionar motorista', 'Select driver')}</option>
                 {motoristas.filter(m => m.estado === 'Disponível').map(m => (
@@ -453,7 +453,7 @@ export default function Alugueres() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Valor Total (€)', 'Total Value (€)')}</label>
-              <div className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50 font-semibold text-[#1B3A6B]">
+              <div className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50 font-semibold text-[#D11C1C]">
                 €{calcValor().toLocaleString('pt-PT')}
                 {calcValor() > 0 && (
                   <span className="text-xs text-gray-400 font-normal ml-2">
@@ -466,12 +466,12 @@ export default function Alugueres() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Localização de entrega', 'Delivery location')}</label>
             <input type="text" placeholder={t('Ex: Construtora Beirã — Obra Fundão', 'Ex: Client location')} value={novoAluguer.localizacao} onChange={e => setNovoAluguer(p => ({ ...p, localizacao: e.target.value }))}
-              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Notas', 'Notes')}</label>
             <textarea rows={3} placeholder={t('Observações ou instruções especiais...', 'Notes or special instructions...')} value={novoAluguer.notas} onChange={e => setNovoAluguer(p => ({ ...p, notas: e.target.value }))}
-              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 resize-none" />
+              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 resize-none" />
           </div>
           <div className="flex justify-end gap-3 pt-2">
             <Button variant="secondary" onClick={() => setModalNovo(false)}>{t('Cancelar', 'Cancel')}</Button>

@@ -37,7 +37,7 @@ export function Topbar({ title }) {
         >
           <Menu size={20} />
         </button>
-        <h1 className="text-xl font-bold text-[#1A1A2A] font-display">{title}</h1>
+        <h1 className="text-xl font-bold text-[#111111] font-display">{title}</h1>
       </div>
 
       <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ export function Topbar({ title }) {
           {alertasOpen && (
             <div className="absolute right-0 top-full mt-2 w-96 bg-white rounded-xl shadow-2xl border border-gray-100 z-50">
               <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-                <span className="font-semibold text-sm text-[#1A1A2A]">
+                <span className="font-semibold text-sm text-[#111111]">
                   {lingua === 'EN' ? 'Alerts' : 'Alertas'} ({alertas.length})
                 </span>
                 {alertas.length > 0 && (
@@ -116,7 +116,7 @@ export function Topbar({ title }) {
             onClick={() => setUserOpen(o => !o)}
             className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <div className="w-7 h-7 rounded-full bg-[#1B3A6B] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-full bg-[#D11C1C] flex items-center justify-center">
               <span className="text-white text-xs font-bold">MC</span>
             </div>
             <span className="hidden md:block text-sm font-medium text-gray-700">Miguel</span>

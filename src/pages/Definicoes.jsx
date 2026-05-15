@@ -31,7 +31,7 @@ export default function Definicoes() {
   return (
     <div className="space-y-5 max-w-5xl">
       <div>
-        <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Definições', 'Settings')}</h2>
+        <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Definições', 'Settings')}</h2>
         <p className="text-sm text-gray-400 mt-0.5">{t('Configuração da plataforma', 'Platform configuration')}</p>
       </div>
 
@@ -45,7 +45,7 @@ export default function Definicoes() {
                 onClick={() => setActiveTab(key)}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 text-sm font-medium text-left transition-colors border-b border-gray-50 last:border-0 ${
                   activeTab === key
-                    ? 'bg-[#1B3A6B] text-white'
+                    ? 'bg-[#D11C1C] text-white'
                     : 'text-gray-600 hover:bg-gray-50'
                 }`}
               >
@@ -62,16 +62,16 @@ export default function Definicoes() {
           {/* Empresa */}
           {activeTab === 'empresa' && (
             <div className="space-y-5">
-              <h3 className="font-bold text-[#1A1A2A] font-display text-lg">{t('Dados da Empresa', 'Company Details')}</h3>
+              <h3 className="font-bold text-[#111111] font-display text-lg">{t('Dados da Empresa', 'Company Details')}</h3>
               <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <div className="w-16 h-16 bg-[#1B3A6B] rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-[#D11C1C] rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-xl font-display">M</span>
                 </div>
                 <div>
                   <p className="font-bold text-gray-800">Maquidonas Lda</p>
                   <p className="text-sm text-gray-400">Donas, Fundão, Castelo Branco</p>
                 </div>
-                <button className="ml-auto text-sm text-[#1B3A6B] hover:underline">
+                <button className="ml-auto text-sm text-[#D11C1C] hover:underline">
                   {t('Alterar logo', 'Change logo')}
                 </button>
               </div>
@@ -90,7 +90,7 @@ export default function Definicoes() {
           {activeTab === 'utilizadores' && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-[#1A1A2A] font-display text-lg">{t('Utilizadores', 'Users')}</h3>
+                <h3 className="font-bold text-[#111111] font-display text-lg">{t('Utilizadores', 'Users')}</h3>
                 <Button variant="primary" size="sm" onClick={() => addToast(t('Convite enviado.', 'Invitation sent.'))}>
                   + {t('Convidar', 'Invite')}
                 </Button>
@@ -108,7 +108,7 @@ export default function Definicoes() {
                     <tr key={u.id} className="hover:bg-gray-50 transition-colors">
                       <td className="px-4 py-3.5">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#1B3A6B] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-[#D11C1C] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                             {u.nome.split(' ').map(n => n[0]).join('').slice(0, 2)}
                           </div>
                           <div>
@@ -130,7 +130,7 @@ export default function Definicoes() {
           {/* Notificações */}
           {activeTab === 'notificacoes' && (
             <div className="space-y-4">
-              <h3 className="font-bold text-[#1A1A2A] font-display text-lg">{t('Notificações', 'Notifications')}</h3>
+              <h3 className="font-bold text-[#111111] font-display text-lg">{t('Notificações', 'Notifications')}</h3>
               <p className="text-sm text-gray-400">{t('Configure quais alertas pretende receber.', 'Configure which alerts you want to receive.')}</p>
               <div className="space-y-3">
                 {[
@@ -144,7 +144,7 @@ export default function Definicoes() {
                     <p className="text-sm text-gray-700">{t(item.pt, item.en)}</p>
                     <button
                       onClick={() => setNotificacoes(prev => ({ ...prev, [item.key]: !prev[item.key] }))}
-                      className={`relative w-11 h-6 rounded-full transition-colors ${notificacoes[item.key] ? 'bg-[#1B3A6B]' : 'bg-gray-200'}`}
+                      className={`relative w-11 h-6 rounded-full transition-colors ${notificacoes[item.key] ? 'bg-[#D11C1C]' : 'bg-gray-200'}`}
                     >
                       <div className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${notificacoes[item.key] ? 'translate-x-5' : ''}`} />
                     </button>
@@ -158,7 +158,7 @@ export default function Definicoes() {
           {/* Faturação */}
           {activeTab === 'faturacao' && (
             <div className="space-y-5">
-              <h3 className="font-bold text-[#1A1A2A] font-display text-lg">{t('Configuração de Faturação', 'Invoicing Configuration')}</h3>
+              <h3 className="font-bold text-[#111111] font-display text-lg">{t('Configuração de Faturação', 'Invoicing Configuration')}</h3>
 
               {/* Integração Vendus */}
               <div className="flex items-center justify-between p-4 border border-green-200 bg-green-50 rounded-xl">
@@ -190,7 +190,7 @@ export default function Definicoes() {
           {/* Língua */}
           {activeTab === 'lingua' && (
             <div className="space-y-5">
-              <h3 className="font-bold text-[#1A1A2A] font-display text-lg">{t('Língua da Interface', 'Interface Language')}</h3>
+              <h3 className="font-bold text-[#111111] font-display text-lg">{t('Língua da Interface', 'Interface Language')}</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { code: 'PT', label: 'Português', sub: 'Portugal', flag: '🇵🇹' },
@@ -201,7 +201,7 @@ export default function Definicoes() {
                     onClick={() => { setLingua(lang.code); addToast(lang.code === 'PT' ? 'Língua alterada para Português.' : 'Language changed to English.') }}
                     className={`flex items-center gap-4 p-5 rounded-xl border-2 transition-all ${
                       lingua === lang.code
-                        ? 'border-[#1B3A6B] bg-blue-50'
+                        ? 'border-[#D11C1C] bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
@@ -211,7 +211,7 @@ export default function Definicoes() {
                       <p className="text-sm text-gray-400">{lang.sub}</p>
                     </div>
                     {lingua === lang.code && (
-                      <Check size={18} className="text-[#1B3A6B] ml-auto" />
+                      <Check size={18} className="text-[#D11C1C] ml-auto" />
                     )}
                   </button>
                 ))}
@@ -231,7 +231,7 @@ function Field({ label, defaultValue, type = 'text', className = '' }) {
       <input
         type={type}
         defaultValue={defaultValue}
-        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 focus:border-[#1B3A6B]"
+        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 focus:border-[#D11C1C]"
       />
     </div>
   )

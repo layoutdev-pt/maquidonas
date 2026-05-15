@@ -19,7 +19,7 @@ export function Drawer({ open, onClose, title, subtitle, children, width = 'lg' 
             style={{ animation: 'slideIn 0.25s ease-out' }}>
             <div className="flex items-start justify-between px-6 py-5 border-b border-gray-100 bg-white flex-shrink-0">
               <div>
-                <h2 className="text-lg font-bold text-[#1A1A2A] font-display">{title}</h2>
+                <h2 className="text-lg font-bold text-[#111111] font-display">{title}</h2>
                 {subtitle && <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>}
               </div>
               <button
@@ -54,7 +54,7 @@ export function DrawerTabs({ tabs, active, onChange }) {
           onClick={() => onChange(tab.key)}
           className={`flex items-center gap-2 px-4 py-3.5 text-sm font-medium border-b-2 transition-colors ${
             active === tab.key
-              ? 'border-[#1B3A6B] text-[#1B3A6B]'
+              ? 'border-[#D11C1C] text-[#D11C1C]'
               : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
           }`}
         >

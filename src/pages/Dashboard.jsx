@@ -14,8 +14,8 @@ import { receitaMensal } from '../data/mockData'
 
 const ESTADO_COLORS = {
   'Disponível': '#22C55E',
-  'Alugada': '#1B3A6B',
-  'Manutenção': '#F5A623',
+  'Alugada': '#D11C1C',
+  'Manutenção': '#A51414',
   'Inactiva': '#94A3B8',
 }
 
@@ -30,7 +30,7 @@ function KpiCard({ title, value, sub, icon: Icon, accent, onClick }) {
       </div>
       <div className="min-w-0">
         <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{title}</p>
-        <p className="text-2xl font-bold text-[#1A1A2A] font-display leading-tight mt-0.5">{value}</p>
+        <p className="text-2xl font-bold text-[#111111] font-display leading-tight mt-0.5">{value}</p>
         {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
       </div>
     </div>
@@ -42,7 +42,7 @@ const CustomAreaTooltip = ({ active, payload, label }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-lg px-4 py-3 text-sm">
       <p className="font-semibold text-gray-700 mb-1">{label}</p>
-      <p className="text-[#1B3A6B]">Receita: <strong>€{payload[0]?.value?.toLocaleString('pt-PT')}</strong></p>
+      <p className="text-[#D11C1C]">Receita: <strong>€{payload[0]?.value?.toLocaleString('pt-PT')}</strong></p>
     </div>
   )
 }
@@ -91,7 +91,7 @@ export default function Dashboard() {
           value={alugueresActivos.length}
           sub={t(`+${alugueresAprovados.length} aprovados`, `+${alugueresAprovados.length} approved`)}
           icon={Calendar}
-          accent="#1B3A6B"
+          accent="#D11C1C"
           onClick={() => navigate('/alugueres')}
         />
         <KpiCard
@@ -107,7 +107,7 @@ export default function Dashboard() {
           value={`€${receitaMes.toLocaleString('pt-PT')}`}
           sub={t('Maio 2025', 'May 2025')}
           icon={Euro}
-          accent="#F5A623"
+          accent="#A51414"
         />
         <KpiCard
           title={t('Alertas Pendentes', 'Pending Alerts')}
@@ -124,7 +124,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h3 className="font-bold text-[#1A1A2A] font-display text-base">{t('Receita Mensal', 'Monthly Revenue')}</h3>
+              <h3 className="font-bold text-[#111111] font-display text-base">{t('Receita Mensal', 'Monthly Revenue')}</h3>
               <p className="text-xs text-gray-400 mt-0.5">{t('Últimos 6 meses', 'Last 6 months')}</p>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-green-600 font-semibold bg-green-50 px-3 py-1.5 rounded-full">
@@ -137,8 +137,8 @@ export default function Dashboard() {
               <AreaChart data={receitaMensal}>
                 <defs>
                   <linearGradient id="receitaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#1B3A6B" stopOpacity={0.15} />
-                    <stop offset="95%" stopColor="#1B3A6B" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#D11C1C" stopOpacity={0.15} />
+                    <stop offset="95%" stopColor="#D11C1C" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
@@ -147,9 +147,9 @@ export default function Dashboard() {
                 <Tooltip content={<CustomAreaTooltip />} />
                 <Area
                   type="monotone" dataKey="receita"
-                  stroke="#1B3A6B" strokeWidth={2.5}
+                  stroke="#D11C1C" strokeWidth={2.5}
                   fill="url(#receitaGrad)" dot={false}
-                  activeDot={{ r: 5, fill: '#1B3A6B', stroke: '#fff', strokeWidth: 2 }}
+                  activeDot={{ r: 5, fill: '#D11C1C', stroke: '#fff', strokeWidth: 2 }}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -158,7 +158,7 @@ export default function Dashboard() {
 
         {/* Donut — estado da frota */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex flex-col">
-          <h3 className="font-bold text-[#1A1A2A] font-display text-base mb-1">{t('Estado da Frota', 'Fleet Status')}</h3>
+          <h3 className="font-bold text-[#111111] font-display text-base mb-1">{t('Estado da Frota', 'Fleet Status')}</h3>
           <p className="text-xs text-gray-400 mb-4">{frota.length} {t('equipamentos', 'equipment')}</p>
           <div style={{ height: 160 }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -199,9 +199,9 @@ export default function Dashboard() {
         {/* Recent bookings */}
         <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <h3 className="font-bold text-[#1A1A2A] font-display text-base">{t('Alugueres Recentes', 'Recent Bookings')}</h3>
+            <h3 className="font-bold text-[#111111] font-display text-base">{t('Alugueres Recentes', 'Recent Bookings')}</h3>
             <button
-              className="text-xs text-[#1B3A6B] font-semibold hover:underline flex items-center gap-1"
+              className="text-xs text-[#D11C1C] font-semibold hover:underline flex items-center gap-1"
               onClick={() => navigate('/alugueres')}
             >
               {t('Ver todos', 'View all')} <ArrowRight size={13} />
@@ -218,7 +218,7 @@ export default function Dashboard() {
                   onClick={() => navigate('/alugueres')}
                 >
                   {/* Machine thumbnail */}
-                  <div className="w-14 h-10 rounded-lg bg-[#EEF2F7] flex-shrink-0 overflow-hidden">
+                  <div className="w-14 h-10 rounded-lg bg-[#F5F5F5] flex-shrink-0 overflow-hidden">
                     {maquina?.imagem ? (
                       <img src={maquina.imagem} alt={maquina.nome} className="w-full h-full object-contain p-1" />
                     ) : (
@@ -246,7 +246,7 @@ export default function Dashboard() {
         {/* Alerts panel */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex flex-col">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-[#1A1A2A] font-display text-base">{t('Alertas', 'Alerts')}</h3>
+            <h3 className="font-bold text-[#111111] font-display text-base">{t('Alertas', 'Alerts')}</h3>
             {alertas.length > 0 && (
               <span className="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-full">{alertas.length}</span>
             )}
@@ -274,7 +274,7 @@ export default function Dashboard() {
           </div>
           {alertas.length > 0 && (
             <button
-              className="mt-3 w-full text-xs text-[#1B3A6B] hover:underline text-center font-semibold"
+              className="mt-3 w-full text-xs text-[#D11C1C] hover:underline text-center font-semibold"
               onClick={() => navigate('/frota')}
             >
               {t('Ver frota completa', 'View full fleet')} →
@@ -285,15 +285,15 @@ export default function Dashboard() {
 
       {/* Approval banner */}
       {alugueresPedido.length > 0 && (
-        <div className="bg-[#1B3A6B] rounded-2xl px-5 py-4 flex items-center gap-4">
+        <div className="bg-[#D11C1C] rounded-2xl px-5 py-4 flex items-center gap-4">
           <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-            <Clock size={18} className="text-[#F5A623]" />
+            <Clock size={18} className="text-[#A51414]" />
           </div>
           <p className="font-semibold text-white text-sm flex-1">
             {alugueresPedido.length} {t('pedido(s) de aluguer aguardam aprovação', 'rental request(s) awaiting approval')}
           </p>
           <button
-            className="bg-[#F5A623] text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-[#E09610] transition-colors flex items-center gap-1.5 flex-shrink-0"
+            className="bg-[#A51414] text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-[#E09610] transition-colors flex items-center gap-1.5 flex-shrink-0"
             onClick={() => navigate('/alugueres')}
           >
             {t('Rever agora', 'Review now')} <ArrowRight size={13} />

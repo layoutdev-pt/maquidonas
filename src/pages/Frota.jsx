@@ -15,8 +15,8 @@ const estados = ['Todos', 'Disponível', 'Alugada', 'Manutenção', 'Inactiva']
 
 const ESTADO_ACCENT = {
   'Disponível': '#22C55E',
-  'Alugada': '#1B3A6B',
-  'Manutenção': '#F5A623',
+  'Alugada': '#D11C1C',
+  'Manutenção': '#A51414',
   'Inactiva': '#94A3B8',
 }
 
@@ -28,7 +28,7 @@ function MaquinaCard({ maquina, onClick }) {
       onClick={onClick}
     >
       {/* Image area */}
-      <div className="relative h-44 bg-[#EEF2F7] flex items-center justify-center overflow-hidden">
+      <div className="relative h-44 bg-[#F5F5F5] flex items-center justify-center overflow-hidden">
         {maquina.imagem ? (
           <img
             src={maquina.imagem}
@@ -44,7 +44,7 @@ function MaquinaCard({ maquina, onClick }) {
         </div>
         {/* Price overlay */}
         <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-xl px-2.5 py-1 shadow-sm">
-          <span className="text-sm font-bold text-[#1A1A2A]">€{maquina.precoDia}<span className="text-xs font-normal text-gray-400">/dia</span></span>
+          <span className="text-sm font-bold text-[#111111]">€{maquina.precoDia}<span className="text-xs font-normal text-gray-400">/dia</span></span>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ function MaquinaCard({ maquina, onClick }) {
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <p className="font-bold text-[#1A1A2A] text-sm leading-snug truncate">{maquina.nome}</p>
+            <p className="font-bold text-[#111111] text-sm leading-snug truncate">{maquina.nome}</p>
             <p className="text-xs text-gray-400 mt-0.5">{maquina.tipo} · {maquina.marca} {maquina.ano}</p>
           </div>
           <span className="font-mono text-[10px] text-gray-400 flex-shrink-0 bg-gray-100 px-1.5 py-0.5 rounded">{maquina.id}</span>
@@ -111,7 +111,7 @@ export default function Frota() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Gestão de Frota', 'Fleet Management')}</h2>
+          <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Gestão de Frota', 'Fleet Management')}</h2>
           <p className="text-sm text-gray-400 mt-0.5">
             {frota.filter(m => m.estado === 'Disponível').length} {t('disponíveis', 'available')} · {frota.length} {t('total', 'total')}
           </p>
@@ -131,20 +131,20 @@ export default function Frota() {
               placeholder={t('Pesquisar máquina, marca, ID...', 'Search machine, brand, ID...')}
               value={pesquisa}
               onChange={e => setPesquisa(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 focus:border-[#1B3A6B]"
+              className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 focus:border-[#D11C1C]"
             />
           </div>
           <select
             value={filtroTipo}
             onChange={e => setFiltroTipo(e.target.value)}
-            className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 focus:border-[#1B3A6B] bg-white"
+            className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 focus:border-[#D11C1C] bg-white"
           >
             {tipos.map(tp => <option key={tp}>{tp}</option>)}
           </select>
           <select
             value={filtroEstado}
             onChange={e => setFiltroEstado(e.target.value)}
-            className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 focus:border-[#1B3A6B] bg-white"
+            className="px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 focus:border-[#D11C1C] bg-white"
           >
             {estados.map(e => <option key={e}>{e}</option>)}
           </select>
@@ -159,13 +159,13 @@ export default function Frota() {
           {/* View toggle */}
           <div className="flex items-center gap-1 bg-gray-100 rounded-xl p-1 flex-shrink-0">
             <button
-              className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-white shadow-sm text-[#1B3A6B]' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-white shadow-sm text-[#D11C1C]' : 'text-gray-400 hover:text-gray-600'}`}
               onClick={() => setViewMode('grid')}
             >
               <LayoutGrid size={16} />
             </button>
             <button
-              className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white shadow-sm text-[#1B3A6B]' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white shadow-sm text-[#D11C1C]' : 'text-gray-400 hover:text-gray-600'}`}
               onClick={() => setViewMode('list')}
             >
               <List size={16} />
@@ -216,7 +216,7 @@ export default function Frota() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-[#1B3A6B] text-white text-left">
+                <tr className="bg-[#D11C1C] text-white text-left">
                   {[
                     ['', ''], ['Nome / Modelo', 'Name / Model'], ['Tipo', 'Type'],
                     ['Ano', 'Year'], ['€/Dia', '€/Day'], ['Estado', 'Status'], ['', '']
@@ -241,7 +241,7 @@ export default function Frota() {
                     onClick={() => openMaquina(maquina)}
                   >
                     <td className="px-4 py-3">
-                      <div className="w-12 h-10 bg-[#EEF2F7] rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
+                      <div className="w-12 h-10 bg-[#F5F5F5] rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
                         {maquina.imagem ? (
                           <img src={maquina.imagem} alt={maquina.nome} className="w-full h-full object-contain p-1" />
                         ) : (
@@ -258,7 +258,7 @@ export default function Frota() {
                     <td className="px-4 py-3.5 text-sm font-semibold text-gray-800">€{maquina.precoDia}</td>
                     <td className="px-4 py-3.5"><Badge label={maquina.estado} /></td>
                     <td className="px-4 py-3.5">
-                      <button className="opacity-0 group-hover:opacity-100 text-xs text-[#1B3A6B] font-semibold hover:underline transition-opacity">
+                      <button className="opacity-0 group-hover:opacity-100 text-xs text-[#D11C1C] font-semibold hover:underline transition-opacity">
                         {t('Ver ficha', 'View')}
                       </button>
                     </td>
@@ -285,7 +285,7 @@ export default function Frota() {
           <>
             {/* Machine image in drawer */}
             {maquinaAberta.imagem && (
-              <div className="h-40 bg-[#EEF2F7] flex items-center justify-center overflow-hidden border-b border-gray-100">
+              <div className="h-40 bg-[#F5F5F5] flex items-center justify-center overflow-hidden border-b border-gray-100">
                 <img
                   src={maquinaAberta.imagem}
                   alt={maquinaAberta.nome}
@@ -303,7 +303,7 @@ export default function Frota() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">{t('Preço/dia', 'Price/day')}</p>
-                  <p className="text-lg font-bold text-[#1B3A6B] mt-0.5">€{maquinaAberta.precoDia}</p>
+                  <p className="text-lg font-bold text-[#D11C1C] mt-0.5">€{maquinaAberta.precoDia}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">{t('Matrícula', 'Plate')}</p>
@@ -353,7 +353,7 @@ export default function Frota() {
                               <p className="text-sm font-medium text-gray-800 truncate">{doc.nome}</p>
                               <p className="text-xs text-gray-400">{new Date(doc.data).toLocaleDateString('pt-PT')}</p>
                             </div>
-                            <button className="text-xs text-[#1B3A6B] hover:underline font-medium" onClick={() => addToast(t('A abrir documento...', 'Opening document...'), 'info')}>
+                            <button className="text-xs text-[#D11C1C] hover:underline font-medium" onClick={() => addToast(t('A abrir documento...', 'Opening document...'), 'info')}>
                               {t('Ver', 'View')}
                             </button>
                           </div>
@@ -385,7 +385,7 @@ export default function Frota() {
                               </p>
                             </div>
                             <div className="text-right">
-                              <p className="text-sm font-bold text-[#1B3A6B]">€{aluguer.valor.toLocaleString('pt-PT')}</p>
+                              <p className="text-sm font-bold text-[#D11C1C]">€{aluguer.valor.toLocaleString('pt-PT')}</p>
                               <Badge label={aluguer.estado} size="sm" />
                             </div>
                           </div>
@@ -437,12 +437,12 @@ export default function Frota() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <MetricCard label={t('Total Manutenção', 'Total Maintenance')} value={`€${maquinaAberta.custoManutencao.toLocaleString('pt-PT')}`} color="#DC2626" />
                     <MetricCard label={t('Receita Alugueres', 'Rental Revenue')} value={`€${maquinaAberta.receitaAlugueres.toLocaleString('pt-PT')}`} color="#16A34A" />
-                    <MetricCard label={t('Lucro Líquido', 'Net Profit')} value={`€${lucro.toLocaleString('pt-PT')}`} sub={`${((lucro / maquinaAberta.receitaAlugueres) * 100).toFixed(0)}% margem`} color={lucro > 0 ? '#1B3A6B' : '#DC2626'} />
+                    <MetricCard label={t('Lucro Líquido', 'Net Profit')} value={`€${lucro.toLocaleString('pt-PT')}`} sub={`${((lucro / maquinaAberta.receitaAlugueres) * 100).toFixed(0)}% margem`} color={lucro > 0 ? '#D11C1C' : '#DC2626'} />
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <p className="text-xs text-gray-400 mb-2">{t('Rentabilidade', 'Profitability')}</p>
                     <div className="w-full bg-gray-200 rounded-full h-3">
-                      <div className="bg-[#1B3A6B] h-3 rounded-full" style={{ width: `${Math.min(100, Math.max(0, (lucro / maquinaAberta.receitaAlugueres) * 100))}%` }} />
+                      <div className="bg-[#D11C1C] h-3 rounded-full" style={{ width: `${Math.min(100, Math.max(0, (lucro / maquinaAberta.receitaAlugueres) * 100))}%` }} />
                     </div>
                     <p className="text-xs text-gray-500 mt-1.5">{((lucro / maquinaAberta.receitaAlugueres) * 100).toFixed(1)}% {t('de margem líquida', 'net margin')}</p>
                   </div>
@@ -478,7 +478,7 @@ export default function Frota() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Tipo', 'Type')}</label>
-              <select className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30">
+              <select className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30">
                 {tipos.slice(1).map(tp => <option key={tp}>{tp}</option>)}
               </select>
             </div>
@@ -550,7 +550,7 @@ function FormField({ label, placeholder, type = 'text' }) {
       <input
         type={type}
         placeholder={placeholder}
-        className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 focus:border-[#1B3A6B]"
+        className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 focus:border-[#D11C1C]"
       />
     </div>
   )

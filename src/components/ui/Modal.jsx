@@ -28,7 +28,7 @@ export function Modal({ open, onClose, title, children, size = 'md' }) {
       />
       <div className={`relative bg-white rounded-xl shadow-2xl w-full ${sizes[size]} max-h-[90vh] flex flex-col`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          <h2 className="text-lg font-semibold text-[#1A1A2A] font-display">{title}</h2>
+          <h2 className="text-lg font-semibold text-[#111111] font-display">{title}</h2>
           <button
             onClick={onClose}
             className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors"

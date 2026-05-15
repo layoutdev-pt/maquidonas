@@ -30,7 +30,7 @@ export default function Faturacao() {
     <div className="space-y-5 max-w-7xl">
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Faturação', 'Invoicing')}</h2>
+          <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Faturação', 'Invoicing')}</h2>
           <p className="text-sm text-gray-400 mt-0.5">{faturas.length} {t('faturas', 'invoices')} · {t('Série 2025', 'Series 2025')}</p>
         </div>
         <Button variant="primary" icon={<Plus size={16} />} onClick={() => setModalEmitir(true)}>
@@ -44,9 +44,9 @@ export default function Faturacao() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400">{t('Total Faturado', 'Total Invoiced')}</p>
-              <p className="text-2xl font-bold text-[#1B3A6B] font-display mt-1">€{totalFaturado.toLocaleString('pt-PT')}</p>
+              <p className="text-2xl font-bold text-[#D11C1C] font-display mt-1">€{totalFaturado.toLocaleString('pt-PT')}</p>
             </div>
-            <Euro size={24} className="text-[#1B3A6B]/30" />
+            <Euro size={24} className="text-[#D11C1C]/30" />
           </div>
         </div>
         <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
@@ -90,7 +90,7 @@ export default function Faturacao() {
             onClick={() => setFiltroEstado(estado)}
             className={`px-3.5 py-1.5 rounded-full text-sm font-medium border transition-all ${
               filtroEstado === estado
-                ? 'bg-[#1B3A6B] text-white border-[#1B3A6B]'
+                ? 'bg-[#D11C1C] text-white border-[#D11C1C]'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
             }`}
           >
@@ -107,7 +107,7 @@ export default function Faturacao() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-[#1B3A6B] text-white text-left">
+              <tr className="bg-[#D11C1C] text-white text-left">
                 {[['Nº Fatura', 'Invoice #'], ['Cliente', 'Client'], ['Ref. Aluguer', 'Rental Ref.'], ['Valor', 'Amount'], ['Data', 'Date'], ['Estado', 'Status'], ['Acções', 'Actions']].map(([pt, en]) => (
                   <th key={pt} className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-white/80">{t(pt, en)}</th>
                 ))}
@@ -119,18 +119,18 @@ export default function Faturacao() {
                 return (
                   <tr key={fatura.id} className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-5 py-3.5">
-                      <span className="font-mono text-sm font-medium text-[#1B3A6B]">{fatura.serie}</span>
+                      <span className="font-mono text-sm font-medium text-[#D11C1C]">{fatura.serie}</span>
                     </td>
                     <td className="px-5 py-3.5 text-sm text-gray-800 font-medium">{cliente?.nome || '—'}</td>
                     <td className="px-5 py-3.5">
                       <span className="font-mono text-xs text-gray-500">{fatura.aluguerRef}</span>
                     </td>
-                    <td className="px-5 py-3.5 text-sm font-bold text-[#1B3A6B]">€{fatura.valor.toLocaleString('pt-PT')}</td>
+                    <td className="px-5 py-3.5 text-sm font-bold text-[#D11C1C]">€{fatura.valor.toLocaleString('pt-PT')}</td>
                     <td className="px-5 py-3.5 text-sm text-gray-500">{new Date(fatura.data).toLocaleDateString('pt-PT')}</td>
                     <td className="px-5 py-3.5"><Badge label={fatura.estado} /></td>
                     <td className="px-5 py-3.5">
                       <button
-                        className="text-xs text-[#1B3A6B] hover:underline font-medium mr-3"
+                        className="text-xs text-[#D11C1C] hover:underline font-medium mr-3"
                         onClick={() => addToast(t('A abrir fatura PDF...', 'Opening invoice PDF...'), 'info')}
                       >
                         {t('Ver', 'View')}
@@ -164,7 +164,7 @@ export default function Faturacao() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Aluguer', 'Rental')}</label>
-              <select className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30">
+              <select className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30">
                 <option value="">{t('Seleccionar aluguer...', 'Select rental...')}</option>
                 {alugueres.filter(a => a.estado === 'Concluído').map(a => {
                   const cli = getCliente(a.clienteId)
@@ -181,11 +181,11 @@ export default function Faturacao() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Data', 'Date')}</label>
               <input type="date" defaultValue={new Date().toISOString().split('T')[0]}
-                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Valor (€)', 'Amount (€)')}</label>
-              <input type="number" placeholder="0" className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+              <input type="number" placeholder="0" className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
             </div>
           </div>
           <div className="flex justify-end gap-3 pt-2">

@@ -29,7 +29,7 @@ export default function Clientes() {
     <div className="space-y-5 max-w-7xl">
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Clientes', 'Clients')}</h2>
+          <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Clientes', 'Clients')}</h2>
           <p className="text-sm text-gray-400 mt-0.5">{clientes.length} {t('clientes registados', 'registered clients')}</p>
         </div>
         <Button variant="primary" icon={<Plus size={16} />} onClick={() => setModalNovo(true)}>
@@ -45,7 +45,7 @@ export default function Clientes() {
           placeholder={t('Pesquisar por nome, NIF, email...', 'Search by name, NIF, email...')}
           value={pesquisa}
           onChange={e => setPesquisa(e.target.value)}
-          className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 bg-white shadow-sm"
+          className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 bg-white shadow-sm"
         />
       </div>
 
@@ -54,7 +54,7 @@ export default function Clientes() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-[#1B3A6B] text-white text-left">
+              <tr className="bg-[#D11C1C] text-white text-left">
                 {[['Nome / Empresa', 'Name / Company'], ['NIF', 'TIN'], ['Contacto', 'Contact'], ['Activos', 'Active'], ['Total', 'Total Spent'], ['', '']].map(([pt, en]) => (
                   <th key={pt} className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-white/80">{t(pt, en)}</th>
                 ))}
@@ -87,12 +87,12 @@ export default function Clientes() {
                     }
                   </td>
                   <td className="px-5 py-4">
-                    <p className="text-sm font-bold text-[#1B3A6B]">€{cliente.totalGasto.toLocaleString('pt-PT')}</p>
+                    <p className="text-sm font-bold text-[#D11C1C]">€{cliente.totalGasto.toLocaleString('pt-PT')}</p>
                     <p className="text-xs text-gray-400">{cliente.totalHistorico} {t('alugueres', 'rentals')}</p>
                   </td>
                   <td className="px-5 py-4">
                     <button
-                      className="text-xs text-[#1B3A6B] hover:underline opacity-0 group-hover:opacity-100 transition-opacity font-medium"
+                      className="text-xs text-[#D11C1C] hover:underline opacity-0 group-hover:opacity-100 transition-opacity font-medium"
                       onClick={e => { e.stopPropagation(); setClienteAberto(cliente) }}
                     >
                       {t('Ver ficha', 'View')} →
@@ -130,7 +130,7 @@ export default function Clientes() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">{t('Total gasto', 'Total spent')}</span>
-                    <span className="font-bold text-[#1B3A6B]">€{clienteAberto.totalGasto.toLocaleString('pt-PT')}</span>
+                    <span className="font-bold text-[#D11C1C]">€{clienteAberto.totalGasto.toLocaleString('pt-PT')}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">{t('Alugueres', 'Rentals')}</span>
@@ -168,7 +168,7 @@ export default function Clientes() {
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-bold text-[#1B3A6B]">€{a.valor.toLocaleString('pt-PT')}</p>
+                        <p className="text-sm font-bold text-[#D11C1C]">€{a.valor.toLocaleString('pt-PT')}</p>
                         <Badge label={a.estado} size="sm" />
                       </div>
                     </div>
@@ -195,7 +195,7 @@ export default function Clientes() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('Notas internas', 'Internal notes')}</label>
             <textarea rows={3} placeholder={t('Observações sobre o cliente...', 'Client notes...')}
-              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30 resize-none" />
+              className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30 resize-none" />
           </div>
           <div className="flex justify-end gap-3 pt-2">
             <Button variant="secondary" onClick={() => setModalNovo(false)}>{t('Cancelar', 'Cancel')}</Button>
@@ -214,7 +214,7 @@ function FormField({ label, placeholder, type = 'text' }) {
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
       <input type={type} placeholder={placeholder}
-        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A6B]/30" />
+        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#D11C1C]/30" />
     </div>
   )
 }

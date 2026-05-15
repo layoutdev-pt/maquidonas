@@ -51,7 +51,7 @@ export default function Relatorios() {
     <div className="space-y-5 max-w-7xl">
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#1A1A2A] font-display">{t('Relatórios', 'Reports')}</h2>
+          <h2 className="text-2xl font-bold text-[#111111] font-display">{t('Relatórios', 'Reports')}</h2>
           <p className="text-sm text-gray-400 mt-0.5">{t('Dados de Janeiro a Maio 2025', 'Data from January to May 2025')}</p>
         </div>
         <div className="flex gap-2">
@@ -68,7 +68,7 @@ export default function Relatorios() {
             onClick={() => setActiveTab(key)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
               activeTab === key
-                ? 'bg-[#1B3A6B] text-white shadow-sm'
+                ? 'bg-[#D11C1C] text-white shadow-sm'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
@@ -85,9 +85,9 @@ export default function Relatorios() {
         {activeTab === 'receita' && (
           <div>
             <div className="flex items-center justify-between mb-5">
-              <h3 className="font-bold text-[#1A1A2A] font-display">{t('Receita vs Custos por Mês', 'Monthly Revenue vs Costs')}</h3>
+              <h3 className="font-bold text-[#111111] font-display">{t('Receita vs Custos por Mês', 'Monthly Revenue vs Costs')}</h3>
               <div className="text-right">
-                <p className="text-2xl font-bold text-[#1B3A6B]">€{receitaMensal.reduce((s, m) => s + m.receita, 0).toLocaleString('pt-PT')}</p>
+                <p className="text-2xl font-bold text-[#D11C1C]">€{receitaMensal.reduce((s, m) => s + m.receita, 0).toLocaleString('pt-PT')}</p>
                 <p className="text-xs text-gray-400">{t('total no período', 'total in period')}</p>
               </div>
             </div>
@@ -99,8 +99,8 @@ export default function Relatorios() {
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => `€${(v / 1000).toFixed(0)}k`} />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend wrapperStyle={{ fontSize: 12, paddingTop: 16 }} />
-                  <Bar name={t('Receita', 'Revenue')} dataKey="receita" fill="#1B3A6B" radius={[4, 4, 0, 0]} />
-                  <Bar name={t('Custos', 'Costs')} dataKey="custos" fill="#F5A623" radius={[4, 4, 0, 0]} />
+                  <Bar name={t('Receita', 'Revenue')} dataKey="receita" fill="#D11C1C" radius={[4, 4, 0, 0]} />
+                  <Bar name={t('Custos', 'Costs')} dataKey="custos" fill="#A51414" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -112,8 +112,8 @@ export default function Relatorios() {
                   <XAxis dataKey="mes" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#94a3b8' }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => `€${(v / 1000).toFixed(0)}k`} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Line type="monotone" name={t('Receita', 'Revenue')} dataKey="receita" stroke="#1B3A6B" strokeWidth={2.5} dot={{ fill: '#1B3A6B', r: 4 }} />
-                  <Line type="monotone" name={t('Custos', 'Costs')} dataKey="custos" stroke="#F5A623" strokeWidth={2.5} dot={{ fill: '#F5A623', r: 4 }} strokeDasharray="5 5" />
+                  <Line type="monotone" name={t('Receita', 'Revenue')} dataKey="receita" stroke="#D11C1C" strokeWidth={2.5} dot={{ fill: '#D11C1C', r: 4 }} />
+                  <Line type="monotone" name={t('Custos', 'Costs')} dataKey="custos" stroke="#A51414" strokeWidth={2.5} dot={{ fill: '#A51414', r: 4 }} strokeDasharray="5 5" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -123,7 +123,7 @@ export default function Relatorios() {
         {/* Utilização de frota */}
         {activeTab === 'frota' && (
           <div>
-            <h3 className="font-bold text-[#1A1A2A] font-display mb-5">{t('Utilização por Máquina (últimos 60 dias)', 'Utilization by Machine (last 60 days)')}</h3>
+            <h3 className="font-bold text-[#111111] font-display mb-5">{t('Utilização por Máquina (últimos 60 dias)', 'Utilization by Machine (last 60 days)')}</h3>
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50 text-left">
@@ -142,13 +142,13 @@ export default function Relatorios() {
                         <div className="flex-1 bg-gray-200 rounded-full h-2">
                           <div
                             className="h-2 rounded-full"
-                            style={{ width: `${row.ocupacao}%`, backgroundColor: row.ocupacao >= 60 ? '#16A34A' : row.ocupacao >= 40 ? '#F5A623' : '#DC2626' }}
+                            style={{ width: `${row.ocupacao}%`, backgroundColor: row.ocupacao >= 60 ? '#16A34A' : row.ocupacao >= 40 ? '#A51414' : '#DC2626' }}
                           />
                         </div>
                         <span className="text-sm font-semibold text-gray-700 w-10">{row.ocupacao}%</span>
                       </div>
                     </td>
-                    <td className="px-4 py-3.5 text-sm font-bold text-[#1B3A6B]">€{row.receita.toLocaleString('pt-PT')}</td>
+                    <td className="px-4 py-3.5 text-sm font-bold text-[#D11C1C]">€{row.receita.toLocaleString('pt-PT')}</td>
                     <td className="px-4 py-3.5">
                       <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                         row.ocupacao >= 60 ? 'bg-green-100 text-green-700' :
@@ -168,11 +168,11 @@ export default function Relatorios() {
         {/* Top clientes */}
         {activeTab === 'clientes' && (
           <div>
-            <h3 className="font-bold text-[#1A1A2A] font-display mb-5">{t('Clientes por Volume de Negócio', 'Clients by Business Volume')}</h3>
+            <h3 className="font-bold text-[#111111] font-display mb-5">{t('Clientes por Volume de Negócio', 'Clients by Business Volume')}</h3>
             <div className="space-y-3">
               {topClientes.map((cliente, i) => (
                 <div key={i} className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${i === 0 ? 'bg-[#F5A623] text-white' : i === 1 ? 'bg-gray-200 text-gray-700' : 'bg-gray-100 text-gray-500'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${i === 0 ? 'bg-[#A51414] text-white' : i === 1 ? 'bg-gray-200 text-gray-700' : 'bg-gray-100 text-gray-500'}`}>
                     {i + 1}
                   </div>
                   <div className="flex-1">
@@ -180,12 +180,12 @@ export default function Relatorios() {
                     <p className="text-xs text-gray-400">{cliente.alugueres} {t('alugueres', 'rentals')}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-bold text-[#1B3A6B]">€{cliente.totalGasto.toLocaleString('pt-PT')}</p>
+                    <p className="text-sm font-bold text-[#D11C1C]">€{cliente.totalGasto.toLocaleString('pt-PT')}</p>
                   </div>
                   <div className="w-32">
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-[#1B3A6B] h-2 rounded-full"
+                        className="bg-[#D11C1C] h-2 rounded-full"
                         style={{ width: `${(cliente.totalGasto / topClientes[0].totalGasto) * 100}%` }}
                       />
                     </div>
@@ -199,7 +199,7 @@ export default function Relatorios() {
         {/* Custos vs Receita */}
         {activeTab === 'custos' && (
           <div>
-            <h3 className="font-bold text-[#1A1A2A] font-display mb-5">{t('Custos vs Receita por Máquina', 'Costs vs Revenue by Machine')}</h3>
+            <h3 className="font-bold text-[#111111] font-display mb-5">{t('Custos vs Receita por Máquina', 'Costs vs Revenue by Machine')}</h3>
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50 text-left">
@@ -224,7 +224,7 @@ export default function Relatorios() {
                       <td className="px-4 py-3.5 text-sm font-medium text-gray-800">{row.nome}</td>
                       <td className="px-4 py-3.5 text-sm text-red-600">€{row.custo.toLocaleString('pt-PT')}</td>
                       <td className="px-4 py-3.5 text-sm text-green-600 font-medium">€{row.receita.toLocaleString('pt-PT')}</td>
-                      <td className="px-4 py-3.5 text-sm font-bold text-[#1B3A6B]">€{lucro.toLocaleString('pt-PT')}</td>
+                      <td className="px-4 py-3.5 text-sm font-bold text-[#D11C1C]">€{lucro.toLocaleString('pt-PT')}</td>
                       <td className="px-4 py-3.5">
                         <span className={`text-sm font-bold ${Number(margem) >= 70 ? 'text-green-600' : Number(margem) >= 50 ? 'text-amber-600' : 'text-red-600'}`}>
                           {margem}%

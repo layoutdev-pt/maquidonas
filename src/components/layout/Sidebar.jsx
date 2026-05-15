@@ -31,7 +31,7 @@ export function Sidebar() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed left-0 top-0 bottom-0 z-30 w-60 bg-[#0F2340] flex flex-col
+        fixed left-0 top-0 bottom-0 z-30 w-60 bg-[#111111] flex flex-col
         transition-transform duration-300
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         lg:translate-x-0 lg:static lg:z-auto
@@ -40,7 +40,7 @@ export function Sidebar() {
         {/* Logo */}
         <div className="flex items-center justify-between px-5 py-5 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-[#F5A623] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 bg-[#A51414] rounded-lg flex items-center justify-center flex-shrink-0">
               <Wrench size={18} className="text-white" />
             </div>
             <div>
@@ -69,14 +69,14 @@ export function Sidebar() {
               className={({ isActive }) => `
                 flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group
                 ${isActive
-                  ? 'bg-[#1B3A6B] text-white shadow-sm'
+                  ? 'bg-[#D11C1C] text-white shadow-sm'
                   : 'text-white/60 hover:bg-white/8 hover:text-white/90'
                 }
               `}
             >
               {({ isActive }) => (
                 <>
-                  <Icon size={17} className={isActive ? 'text-[#F5A623]' : 'text-white/50 group-hover:text-white/70'} />
+                  <Icon size={17} className={isActive ? 'text-[#A51414]' : 'text-white/50 group-hover:text-white/70'} />
                   <span className="flex-1">{lingua === 'EN' ? labelEN : label}</span>
                   {isActive && <ChevronRight size={14} className="text-white/40" />}
                 </>
@@ -88,7 +88,7 @@ export function Sidebar() {
         {/* User */}
         <div className="px-4 py-4 border-t border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#1B3A6B] border-2 border-[#F5A623]/60 flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#D11C1C] border-2 border-[#A51414]/60 flex items-center justify-center flex-shrink-0">
               <span className="text-white text-xs font-bold">MC</span>
             </div>
             <div className="min-w-0">

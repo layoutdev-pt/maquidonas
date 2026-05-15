@@ -31,8 +31,8 @@ const variants = {
   // Motoristas estado
   'Em serviço': 'bg-orange-100 text-orange-800 border border-orange-200',
   // custom
-  'navy': 'bg-[#1B3A6B] text-white',
-  'orange': 'bg-[#F5A623] text-white',
+  'navy': 'bg-[#D11C1C] text-white',
+  'orange': 'bg-[#A51414] text-white',
   'success': 'bg-green-100 text-green-800 border border-green-200',
   'error': 'bg-red-100 text-red-800 border border-red-200',
 }
